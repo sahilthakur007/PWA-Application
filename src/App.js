@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useEffect } from "react"
+import Navbar from "./Components/Navbar"
+import {Route,Routes} from "react-router-dom"
+import Home from "./Components/Home"
+import About from "./Components/About"
+import Users from "./Components/Users"
+// import firebase from "./firebase"
+export default () => {
+  // useEffect(() => {
+  //   const msg = firebase.messaging()
+  //   msg.requestPermission().then(() => {
+  //     return msg.getToken()
+  //   }).then((data) => {
+  //     console.warn("token",data)
+  //   })
+  // },[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/users" element={<Users/>}/>
+        <Route path="/about" element={<About/>}/>
+      </Routes>
+    </>
+  )
 }
-
-export default App;
